@@ -28,10 +28,10 @@ class loginView(APIView):
     def post(self, request, format=None):
         email = request.data['email']       
         password = request.data['password'] 
-
-        user = User.objects.get(email=email)
-        
-        if user.check_password(password):
+        user = authenticate(email=email, password=password)
+        # user = User.objects.get(email=email)
+        print(user)
+        if user is not None:
             return Response({"Message": 
             {
                 "user id":user.id,
@@ -40,3 +40,5 @@ class loginView(APIView):
             }}, status=status.HTTP_200_OK)
         else:
             return Response({"Message": "User Does Not exist!"}, status=status.HTTP_404_NOT_FOUND)
+
+        
