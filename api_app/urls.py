@@ -1,6 +1,6 @@
 
 from django.urls import path, include
-from api_app.views import SellerRegView, BuyerRegView, loginView
+from api_app.views import SellerRegView, BuyerRegView, loginView, welcome
 
 
 urlpatterns = [
@@ -8,4 +8,5 @@ urlpatterns = [
     path("buyer/register/", BuyerRegView.as_view(), name="buyer_reg"),
     path("login/", loginView.as_view(), name="login"),
     path('api-auth/', include('rest_framework.urls')),
+    path("", welcome.as_view(), name="welcome"),
 ]

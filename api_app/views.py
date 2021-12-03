@@ -9,7 +9,8 @@ from rest_framework import status
 from rest_framework.response import Response
 from django.contrib.auth import authenticate
 from django.http import HttpResponse
-import json
+from django.views import View
+import datetime
 
 
 class SellerRegView(generics.CreateAPIView):
@@ -42,3 +43,9 @@ class loginView(APIView):
             return Response({"Message": "User Does Not exist!"}, status=status.HTTP_404_NOT_FOUND)
 
         
+
+class welcome(View):
+    def get(self, request):        
+        now = datetime.datetime.now()
+        html = "<html><body><h1>Welcome</h1><h2>It is now %s.</h2></body></html>" % now
+        return HttpResponse(html)
