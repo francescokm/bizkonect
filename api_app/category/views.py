@@ -14,3 +14,7 @@ class DetailCategoryView(generics.RetrieveUpdateDestroyAPIView):
 class CategoryOnServicesView(generics.ListAPIView):
     queryset = M_Cat.objects.all()
     serializer_class  = CategoryToServiceSerial
+
+class CategoryOnServicesRetriveView(generics.RetrieveAPIView):
+    queryset = M_Cat.objects.all()
+    serializer_class  = CategoryToServiceSerial
