@@ -1,9 +1,11 @@
 
-from django.urls import path, include
+from django.urls import path, include, re_path
 from api_app.views import SellerRegView, BuyerRegView, loginView, welcome
 
 
 urlpatterns = [
+    re_path(r'^', include('api_app.category.urls')),
+    re_path(r'^', include('api_app.subcategory.urls')),
     path("seller/register/", SellerRegView.as_view(), name="seller_reg"),
     path("buyer/register/", BuyerRegView.as_view(), name="buyer_reg"),
     path("login/", loginView.as_view(), name="login"),
