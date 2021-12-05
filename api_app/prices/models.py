@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class PriceServs(models.Model):
     title = models.CharField(max_length=50, blank=False, null=False)
     subtitle = models.CharField(max_length=50, blank=False, null=False)

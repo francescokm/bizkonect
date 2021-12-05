@@ -7,6 +7,7 @@ urlpatterns = [
     re_path(r'^', include('api_app.category.urls')),
     re_path(r'^', include('api_app.subcategory.urls')),
     re_path(r'^', include('api_app.services.urls')),
+    re_path(r'^', include('api_app.prices.urls')),
     path("seller/register/", SellerRegView.as_view(), name="seller_reg"),
     path("buyer/register/", BuyerRegView.as_view(), name="buyer_reg"),
     path("login/", loginView.as_view(), name="login"),

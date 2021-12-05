@@ -11,8 +11,8 @@ def get_default_service_image():
     return 'bizkonect/logo_1080_1080.png'
     
 class Servs(models.Model):
+    prices = models.OneToOneField(PriceServs,on_delete=models.CASCADE,primary_key=True,)
     title = models.CharField(max_length=100, blank=False, null=False, unique=True)
-    prices = models.ForeignKey(PriceServs, related_name='prices', on_delete=models.CASCADE)
     category = models.ForeignKey(Category, related_name='services', on_delete=models.CASCADE)
     subcategory = models.ForeignKey(SubCategory, related_name='subcategories', on_delete=models.CASCADE)
     service_image = models.ImageField(null=True, upload_to=get_service_image_filepath,blank=True,default=get_default_service_image)
