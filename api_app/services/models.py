@@ -1,6 +1,7 @@
 from django.db import models
 from api_app.category.models import Category
 from api_app.subcategory.models import SubCategory
+from api_app.prices.models import PriceServs
 from api_app.models import User
 
 def get_service_image_filepath(self, filename):
@@ -11,6 +12,7 @@ def get_default_service_image():
     
 class Servs(models.Model):
     title = models.CharField(max_length=100, blank=False, null=False, unique=True)
+    prices = models.ForeignKey(PriceServs, related_name='prices', on_delete=models.CASCADE)
     category = models.ForeignKey(Category, related_name='services', on_delete=models.CASCADE)
     subcategory = models.ForeignKey(SubCategory, related_name='subcategories', on_delete=models.CASCADE)
     service_image = models.ImageField(null=True, upload_to=get_service_image_filepath,blank=True,default=get_default_service_image)
