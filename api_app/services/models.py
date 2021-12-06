@@ -1,7 +1,6 @@
 from django.db import models
 from api_app.category.models import Category
 from api_app.subcategory.models import SubCategory
-from api_app.prices.models import PriceServs
 from api_app.models import User
 
 def get_service_image_filepath(self, filename):
@@ -11,7 +10,6 @@ def get_default_service_image():
     return 'bizkonect/logo_1080_1080.png'
     
 class Servs(models.Model):
-    prices = models.OneToOneField(PriceServs,on_delete=models.CASCADE,primary_key=True,)
     title = models.CharField(max_length=100, blank=False, null=False, unique=True)
     category = models.ForeignKey(Category, related_name='services', on_delete=models.CASCADE)
     subcategory = models.ForeignKey(SubCategory, related_name='subcategories', on_delete=models.CASCADE)

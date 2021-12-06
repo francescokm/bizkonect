@@ -1,5 +1,6 @@
 from django.db import models
-
+from api_app.services.models import Servs
+from api_app.models import User
 
 class PriceServs(models.Model):
     title = models.CharField(max_length=50, blank=False, null=False)
@@ -9,6 +10,7 @@ class PriceServs(models.Model):
     non_benefits = models.TextField(blank=True, null=True)    
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+    service = models.ForeignKey(Servs, related_name='prices', on_delete=models.CASCADE)
 
 
     class Meta:
