@@ -4,6 +4,7 @@ from api_app.views import SellerRegView, BuyerRegView, loginView, welcome
 
 
 urlpatterns = [
+    re_path(r'^', include('api_app.offers.urls')),
     re_path(r'^', include('api_app.category.urls')),
     re_path(r'^', include('api_app.subcategory.urls')),
     re_path(r'^', include('api_app.services.urls')),
