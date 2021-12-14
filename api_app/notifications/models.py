@@ -6,7 +6,7 @@ from api_app.status.models import Status
 class Notification(models.Model):
     user = models.ForeignKey(User, related_name='notifications', on_delete=models.CASCADE)
     service = models.ForeignKey(Servs, related_name='notifications', on_delete=models.CASCADE)
-    status = models.ForeignKey(Servs, related_name='notifications', on_delete=models.CASCADE)
+    status = models.ForeignKey(Status, related_name='notifications', on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     readed = models.BooleanField(default=False)
