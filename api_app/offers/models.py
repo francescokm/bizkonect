@@ -1,6 +1,6 @@
 from django.db import models
 from api_app.services.models import Servs
-
+from django.conf import settings
 
 
 #an offer from buyer to seller
@@ -13,8 +13,8 @@ class first_offer(models.Model):
     offer_status = models.CharField(max_length=20)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+    buyer = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
     
-
     def __str__(self):
         return f'{self.id} ({self.service.title})'
 
@@ -29,8 +29,7 @@ class second_offer(models.Model):
     second_offer_status = models.CharField(max_length=20)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+    buyer = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
     
-
-
     def __str__(self):
         return f'{self.id} ({self.service.title})'

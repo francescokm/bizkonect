@@ -11,5 +11,5 @@ class ServiceSerial(serializers.ModelSerializer):
 
     class Meta :
         model = M_Services
-        fields = ['id','title', 'category','subcategory','service_image','tags','pricing','revision','delivery','description','prices','first_offers','second_offers','user']
+        fields = ['id','title', 'category','subcategory','service_image','tags','pricing','revision','delivery','description','prices','first_offers','second_offers','seller']
         read_only_fields = ('id',)

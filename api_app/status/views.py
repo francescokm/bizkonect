@@ -1,5 +1,5 @@
 from rest_framework import generics
-from api_app.status.models import M_Status
+from api_app.status.models import Status as M_Status
 from api_app.status.serializers import StatusSerial
 
 class StatusView(generics.ListCreateAPIView):

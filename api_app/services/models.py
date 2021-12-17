@@ -1,7 +1,7 @@
 from django.db import models
 from api_app.category.models import Category
 from api_app.subcategory.models import SubCategory
-from api_app.models import User
+from django.conf import settings
 
 def get_service_image_filepath(self, filename):
     return f'service_image/{str(self.pk)}/{"service_image.png"}'
@@ -19,7 +19,7 @@ class Servs(models.Model):
     revision = models.IntegerField()
     delivery = models.IntegerField()
     description = models.TextField(blank=True, null=True)
-    user = models.ForeignKey(User, related_name='users', on_delete=models.CASCADE)
+    seller = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 

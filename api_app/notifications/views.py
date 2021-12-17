@@ -6,6 +6,6 @@ class NotifView(generics.ListCreateAPIView):
     queryset = M_Notif.objects.all()
     serializer_class  = NotifSerial
 
-class DetailNotifView(generics.RetrieveAPIView):
+class DetailNotifView(generics.RetrieveUpdateDestroyAPIView):
     queryset = M_Notif.objects.all()
     serializer_class  = NotifSerial
